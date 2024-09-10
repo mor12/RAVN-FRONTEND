@@ -1,0 +1,8 @@
+<li
+  class="flex items-center pl-5 h-11 cursor-pointer"
+  [ngClass]="{ 'active border-r-4 border-r-primary-4': isActive }"
+  (click)="navigate()"
+>
+  <span class="icon-{{ icon }} mr-5"></span>
+  <span class="text-neutral-2">{{ label }}</span>
+</li>

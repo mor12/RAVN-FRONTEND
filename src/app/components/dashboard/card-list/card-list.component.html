@@ -1,0 +1,15 @@
+<div class="text-L font-semibold text-neutral-1">
+  {{ title }} ({{ tasks.length }})
+</div>
+<div 
+  cdkDropList 
+  [cdkDropListData]="tasks"
+  (cdkDropListDropped)="drop($event)"
+  class="flex flex-col w-[320px] h-[calc(100dvh_-_275px)] mt-4 overflow-y-auto"
+>
+  @for (task of tasks; track $index) {
+  <div cdkDrag>
+    <app-card [task]="task"></app-card>
+  </div>
+  }
+</div>

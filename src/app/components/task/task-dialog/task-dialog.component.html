@@ -1,0 +1,64 @@
+<div class="bg-neutral-3 flex flex-col w-full min-h-[320px] md:min-h-0 h-auto text-neutral-1 p-6 gap-y-6">
+  <input [(ngModel)]="taskName" type="text" class="bg-transparent border-none outline-none text-neutral-1 text-xl"
+    placeholder="Task Title" />
+
+
+  <div class="flex justify-between gap-2  flex-col md:flex-row overflow-x-hidden hover:overflow-x-scroll">
+    <app-estimate-dropdown [estimate]="listPointEstimate" (changeEstimate)="estimate = $event">
+      <app-tags>
+        <span class="icon-estimate"></span>
+        {{ estimate ? listPointEstimate[estimate] : "Estimate" }}
+      </app-tags>
+    </app-estimate-dropdown>
+
+    <app-assignee-dropdown [listUser]="users$ | async" (changeUser)="assignee = $event">
+      @if(!assignee) {
+      <app-tags>
+        <span class="icon-assignee"></span>
+        Assignee
+      </app-tags>
+      } @else {
+      <div class="flex items-center gap-1 cursor-pointer scale-90 whitespace-nowrap">
+        <app-avatar [url]="assignee.avatar" [alt]="assignee.fullName" class="w-10"></app-avatar>
+        <span>{{ assignee.fullName }}</span>
+      </div>
+      }
+    </app-assignee-dropdown>
+
+    <app-tags-dropdown [tagList]="listTag" (changeTags)="tags = $event">
+      @if(tags.length === 0) {
+      <app-tags>
+        <span class="icon-label"></span>
+        Label
+      </app-tags>
+      } @else {
+      <div class="flex gap-2">
+        @for (tag of tags; track $index) {
+        <app-tags>{{ tag.value }}</app-tags>
+        }
+      </div>
+      }
+    </app-tags-dropdown>
+
+    <app-tags (click)="picker.open()" class="relative">
+      <span class="icon-date"></span>
+      @if(date) {
+      {{ date | date : "MMM dd, yyyy" }}
+      } @else { Due date }
+      <input matInput (dateChange)="handleDate($event)" [(ngModel)]="date" hidden [matDatepicker]="picker" />
+      <mat-datepicker #picker></mat-datepicker>
+    </app-tags>
+  </div>
+
+  <!-- Error message -->
+  @if (error) {
+  <div class="text-red-500 text-sm">
+    {{ error }}
+  </div>
+  }
+
+  <div class="flex justify-end gap-4">
+    <app-button [type]="'outline'" (click)="closeDialog()">Cancel</app-button>
+    <app-button (click)="saveTask()">Create</app-button>
+  </div>
+</div>

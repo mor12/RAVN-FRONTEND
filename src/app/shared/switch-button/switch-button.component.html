@@ -1,0 +1,20 @@
+@if((path$ | async); as path) {
+
+<div class="flex gap-2">
+  <div
+    [ngClass]="{ active: path === '/task' }"
+    class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer"
+    (click)="navigate('/task')"
+  >
+    <span class="icon-task"></span>
+  </div>
+
+  <div
+    [ngClass]="{ active: path === '/' }"
+    class="h-10 w-10 flex items-center justify-center rounded-lg cursor-pointer"
+    (click)="navigate('/')"
+  >
+    <span class="icon-dashboard"></span>
+  </div>
+</div>
+}

@@ -1,0 +1,28 @@
+<div
+  class="{{ type }}"
+  [ngClass]="{
+    'flex justify-center items-center h-8 px-4 rounded text-M font-semibold select-none gap-3 cursor-pointer whitespace-nowrap': true,
+    'bg-[#94979a1a] !text-neutral-1': type === 'neutral',
+    'bg-[#da584b1a] !text-primary-4': type === 'primary',
+    'bg-[#70b2521a] !text-secondary-4': type === 'secondary',
+    'bg-[#e5b4541a] !text-tertiary-4': type === 'tertiary',
+  }"
+>
+  <ng-content></ng-content>
+</div>
+
+<!-- <div
+  [ngClass]="{
+    'flex justify-center items-center h-8 px-4 rounded text-M font-semibold select-none gap-3': true,
+    'border-neutral-1 border-[1px] !text-neutral-1 !neutral':
+      type === 'neutral',
+    'border-primary-4 border-[1px] !text-primary-4 !primary':
+      type === 'primary',
+    'border-secondary-4 border-[1px] !text-secondary-4 !secondary':
+      type === 'secondary',
+    'border-tertiary-4 border-[1px] !text-tertiary-4 !tertiary':
+      type === 'tertiary'
+  }"
+>
+  <ng-content></ng-content>
+</div> -->

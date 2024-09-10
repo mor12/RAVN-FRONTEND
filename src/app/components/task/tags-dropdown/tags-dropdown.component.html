@@ -1,0 +1,20 @@
+<div [matMenuTriggerFor]="menu">
+  <ng-content></ng-content>
+</div>
+<mat-menu #menu="matMenu">
+  <div
+    class="bg-neutral-4 border-neutral-2 border-[1px] rounded-lg text-xl text-neutral-2 flex flex-col items-start py-3 gap-2 w-[160px]"
+  >
+    <span class="ml-3">Tag Title </span>
+    @for (item of tagList; track $index) {
+    <mat-checkbox
+      (change)="handleClick($event, item.key)"
+      (click)="$event.stopPropagation()"
+      [checked]="item.checked"
+      class="text-neutral-1 gap-4 flex items-center"
+    >
+      {{ item.value }}
+    </mat-checkbox>
+    }
+  </div>
+</mat-menu>

@@ -1,0 +1,9 @@
+.container-card-list {
+  width: calc(100vw - 320px);
+}
+
+@media (max-width: 768px) {
+  .container-card-list {
+    width: calc(100vw - 32px);
+  }
+}

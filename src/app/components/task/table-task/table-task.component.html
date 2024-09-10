@@ -1,0 +1,32 @@
+<div class="flex flex-col w-[calc(100vw_-_32px)] md:w-[calc(100vw_-_320px)] overflow-auto h-[calc(100dvh_-_230px)]">
+  <div
+    class="rounded-md bg-neutral-4 min-w-[900px] text-neutral-1 text-M w-full h-14 flex items-center mb-4 border-[1px] border-neutral-3">
+    <div class="w-[32%] p-4 min-w-[250px] border-[1px] border-neutral-3 rounded-l-md">
+      # Task Name
+    </div>
+    <div class="w-[18%] p-4 min-w-[120px] border-r-[1px] border-neutral-3">
+      Task Tags
+    </div>
+    <div class="w-[10%] p-4 min-w-[100px] border-r-[1px] border-neutral-3">
+      Estimate
+    </div>
+    <div class="w-[25%] p-4 min-w-[120px] border-r-[1px] border-neutral-3">
+      Task Assign Name
+    </div>
+    <div class="w-[15%] p-4 min-w-[120px] rounded-r-md">Due Date</div>
+  </div>
+
+  @if (filterByStatus(tasks, 'BACKLOG').length > 0) {
+  <app-table-task-item class="min-w-[900px] mb-4" title="To Do"
+    [tasks]="filterByStatus(tasks, 'BACKLOG')"></app-table-task-item>
+  } @if (filterByStatus(tasks, 'TODO').length > 0) {
+  <app-table-task-item class="min-w-[900px] mb-4" title="To Do"
+    [tasks]="filterByStatus(tasks, 'TODO')"></app-table-task-item>
+  } @if (filterByStatus(tasks, 'IN_PROGRESS').length > 0) {
+  <app-table-task-item class="min-w-[900px] mb-4" title="In Progress"
+    [tasks]="filterByStatus(tasks, 'IN_PROGRESS')"></app-table-task-item>
+  } @if (filterByStatus(tasks, 'DONE').length > 0) {
+  <app-table-task-item class="min-w-[900px] mb-4" title="Done"
+    [tasks]="filterByStatus(tasks, 'DONE')"></app-table-task-item>
+  }
+</div>

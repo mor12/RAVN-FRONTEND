@@ -1,0 +1,6 @@
+.active {
+  border: 1px solid var(--ravn-color-primary-4);
+  span[class^="icon-"]::before {
+    color: var(--ravn-color-primary-4);
+  }
+}

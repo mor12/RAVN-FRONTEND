@@ -1,0 +1,14 @@
+<div [matMenuTriggerFor]="menu">
+  <ng-content></ng-content>
+</div>
+<mat-menu #menu="matMenu">
+  <div
+    class="bg-neutral-4 border-neutral-2 border-[1px] rounded-lg text-xl text-neutral-2 flex flex-col items-center py-3 gap-2">
+    Assign To... @for (item of listUser; track $index) {
+    <button mat-menu-item class="text-neutral-1 gap-4 flex items-center w-28" (click)="handleClick(item)">
+      <app-avatar class="mr-2 mt-2" [url]="item.avatar" [alt]="item.fullName"></app-avatar>
+      {{ item.fullName }}
+    </button>
+    }
+  </div>
+</mat-menu>

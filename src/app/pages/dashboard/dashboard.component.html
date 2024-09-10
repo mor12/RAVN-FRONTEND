@@ -1,0 +1,25 @@
+<div class="flex container-card-list h-[calc(100dvh_-_230px)] overflow-x-auto gap-8" cdkDropListGroup>
+  @if ((tasks$ | async); as tasks) {
+
+  @if (backlogTasks.length > 0) {
+  <app-card-list title="Backlog" [tasks]="backlogTasks">
+  </app-card-list>
+  }
+
+  @if(todoTasks.length > 0) {
+  <app-card-list title="Working" [tasks]="todoTasks">
+  </app-card-list>
+  }
+
+  @if(inProgressTasks.length > 0) {
+  <app-card-list title="In Progress" [tasks]="inProgressTasks">
+  </app-card-list>
+  }
+
+  @if(doneTasks.length > 0) {
+  <app-card-list title="Complete" [tasks]="doneTasks">
+  </app-card-list>
+  }
+
+  }
+</div>

@@ -1,0 +1,22 @@
+<div [matMenuTriggerFor]="menu">
+  <ng-content></ng-content>
+</div>
+<mat-menu #menu="matMenu" yPosition="below">
+  <div
+    class="bg-neutral-4 border-neutral-2 border-[1px] rounded-lg text-xl text-neutral-2 flex flex-col py-3 gap-2"
+  >
+    <div
+      class="flex gap-3 items-center text-neutral-1 cursor-pointer my-2 mx-8"
+      (click)="clickEdit.emit()"
+    >
+      <span class="icon-edit"></span>Edit
+    </div>
+
+    <div
+      class="flex gap-3 items-center text-neutral-1 cursor-pointer my-2 mx-8"
+      (click)="clickDelete.emit()"
+    >
+      <span class="icon-trash"></span>Delete
+    </div>
+  </div>
+</mat-menu>

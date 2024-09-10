@@ -1,0 +1,64 @@
+<mat-accordion [togglePosition]="'before'">
+  <mat-expansion-panel
+    [(expanded)]="expanded"
+    [ngStyle]="{
+      'border-bottom-left-radius': expanded ? '0px' : '12px',
+      'border-bottom-right-radius': expanded ? '0px' : '12px'
+    }"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title class="text-L">
+        {{ title }}
+        <span class="text-neutral-2 ml-1 text-L"
+          >({{ tasks.length }})</span
+        ></mat-panel-title
+      >
+    </mat-expansion-panel-header>
+
+    @for (task of tasks; track $index) {
+    <div
+      [ngClass]="{ 'border-l-2 border-l-lime-600': true }"
+      class="text-neutral-1 text-M w-full h-14 flex items-center border-[1px] border-neutral-3"
+    >
+      <div
+        class="w-[32%] p-4 h-14 flex items-center min-w-[250px] border-[1px] border-neutral-3"
+      >
+        {{ task.name }}
+      </div>
+      <div
+        class="w-[18%] p-4 h-14 flex items-center min-w-[120px] border-r-[1px] border-neutral-3"
+      >
+        @if(task.tags.length === 1) {
+        <app-tags [type]="getTag(task.tags[0])?.color">
+          {{ getTag(task.tags[0])?.value }}</app-tags
+        >
+        }@else if(task.tags.length > 1) {
+        <span class="flex gap-2">
+          <app-tags [type]="getTag(task.tags[0])?.color">
+            {{ getTag(task.tags[0])?.value }}</app-tags
+          >
+          <app-tags class="w-16"> + {{ task.tags.length - 1 }} </app-tags>
+        </span>
+        }
+      </div>
+      <div
+        class="w-[10%] p-4 h-14 flex items-center min-w-[100px] border-r-[1px] border-neutral-3"
+      >
+        {{ getPointEstimate(task.pointEstimate) }}
+      </div>
+      <div
+        class="w-[25%] gap-2 p-4 h-14 flex items-center min-w-[120px] border-r-[1px] border-neutral-3"
+      >
+        <app-avatar
+          [url]="task.assignee.avatar"
+          [alt]="task.assignee.fullName"
+        ></app-avatar>
+        <span>{{ task.assignee.fullName }}</span>
+      </div>
+      <div class="w-[15%] p-4 h-14 flex items-center min-w-[120px]">
+        {{ task.dueDate | date : "d MMM, yyyy" }}
+      </div>
+    </div>
+    }
+  </mat-expansion-panel>
+</mat-accordion>

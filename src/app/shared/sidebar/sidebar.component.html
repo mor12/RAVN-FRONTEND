@@ -1,0 +1,23 @@
+@if((path$ | async); as path) {
+
+<nav
+  class="flex flex-col bg-neutral-4 pt-5 w-56 rounded-3xl items-center h-[calc(100dvh_-_64px)]"
+>
+  <img src="/assets/logo-ravn.webp" class="w-10 h-10" alt="Logo Ravn" />
+
+  <div class="mt-11 w-full">
+    <app-sidebar-item
+      icon="dashboard"
+      label="DASHBOARD"
+      [isActive]="path === '/'"
+      navigateTo="/"
+    ></app-sidebar-item>
+    <app-sidebar-item
+      icon="task"
+      label="Task"
+      [isActive]="path === '/task'"
+      navigateTo="/task"
+    ></app-sidebar-item>
+  </div>
+</nav>
+}

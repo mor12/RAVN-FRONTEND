@@ -1,0 +1,45 @@
+<div
+  class="flex flex-col w-full py-4 p-6 text-neutral-1 bg-neutral-4 rounded-lg mb-4"
+>
+  <div class="flex justify-between items-center">
+    <div class="text-L font-semibold">{{ task.name }}</div>
+    <app-action-dropdown (clickEdit)="onEdit()" (clickDelete)="onDelete()">
+      <span class="icon-more cursor-pointer"></span>
+    </app-action-dropdown>
+  </div>
+
+  <div class="flex justify-between items-center mt-2">
+    <div class="text-M">{{ getPointEstimate(task.pointEstimate) }}</div>
+    <app-tags
+      ><span class="icon-reloj"></span>
+      {{ task.dueDate | date : "d MMM, yyyy" }}</app-tags
+    >
+  </div>
+
+  <div class="flex items-center mt-4 gap-2">
+    @for (tag of task.tags; track $index) {
+    <app-tags [type]="getTag(tag)?.color">{{ getTag(tag)?.value }}</app-tags>
+    }
+  </div>
+
+  <div class="flex items-center justify-between mt-4">
+    <app-avatar
+      [url]="task.assignee.avatar"
+      [alt]="task.assignee.fullName"
+    ></app-avatar>
+
+    <div class="flex gap-3 items-center">
+      <span class="icon-attachment"></span>
+
+      <div class="flex items-center gap-1">
+        <div class="text-M">5</div>
+        <span class="icon-points"></span>
+      </div>
+
+      <div class="flex items-center gap-1">
+        <div class="text-M">3</div>
+        <span class="icon-comment"></span>
+      </div>
+    </div>
+  </div>
+</div>

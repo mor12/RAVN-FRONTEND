@@ -1,0 +1,273 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use "@angular/material" as mat;
+
+// Plus imports for other components in your app.
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the theme object.
+$ravn-frontend-theme: mat.define-theme(
+  (
+    color: (
+      theme-type: light,
+      primary: mat.$azure-palette,
+      tertiary: mat.$blue-palette,
+    ),
+    density: (
+      scale: 0,
+    ),
+  )
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+body {
+  @include mat.all-component-themes($ravn-frontend-theme);
+}
+@include mat.color-variants-backwards-compatibility($ravn-frontend-theme);
+
+// Comment out the line below if you want to use the pre-defined typography utility classes.
+// For more information: https://material.angular.io/guide/typography#using-typography-styles-in-your-application.
+// @include mat.typography-hierarchy($ravn-frontend-theme);
+
+// Comment out the line below if you want to use the deprecated `color` inputs.
+// @include mat.color-variants-backwards-compatibility($ravn-frontend-theme);
+/* You can add global styles to this file, and also import other style files */
+
+// variables for custom css
+:root {
+  --ravn-color-neutral-1: rgba(255, 255, 255, 1);
+  --ravn-color-neutral-2: rgba(148, 151, 154, 1);
+  --ravn-color-neutral-3: rgba(57, 61, 65, 1);
+  --ravn-color-neutral-4: rgba(44, 47, 51, 1);
+  --ravn-color-neutral-5: rgba(34, 37, 40, 1);
+  --ravn-color-primary-1: rgba(244, 204, 200, 1);
+  --ravn-color-primary-2: rgba(235, 165, 158, 1);
+  --ravn-color-primary-3: rgba(226, 125, 115, 1);
+  --ravn-color-primary-4: rgba(218, 88, 75, 1);
+  --ravn-color-secondary-1: rgba(200, 225, 188, 1);
+  --ravn-color-secondary-2: rgba(170, 209, 153, 1);
+  --ravn-color-secondary-3: rgba(141, 194, 117, 1);
+  --ravn-color-secondary-4: rgba(112, 178, 82, 1);
+  --ravn-color-tertiary-1: rgba(249, 238, 215, 1);
+  --ravn-color-tertiary-2: rgba(242, 218, 171, 1);
+  --ravn-color-tertiary-3: rgba(235, 199, 127, 1);
+  --ravn-color-tertiary-4: rgba(229, 180, 84, 1);
+}
+
+body {
+  font-family: sans-serif;
+}
+
+@font-face {
+  font-family: "icomoon";
+  src: url("../public/fonts/icomoon.eot?eysq26");
+  src: url("../public/fonts/icomoon.eot?eysq26#iefix")
+      format("embedded-opentype"),
+    url("../public/fonts/icomoon.ttf?eysq26") format("truetype"),
+    url("../public/fonts/icomoon.woff?eysq26") format("woff"),
+    url("../public/fonts/icomoon.svg?eysq26#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-more:before {
+  content: "\e90f";
+  color: #94979a;
+  font-size: 4px;
+}
+.icon-bell:before {
+  content: "\e90e";
+  color: #94979a;
+  font-size: 20px;
+}
+.icon-search:before {
+  content: "\e90d";
+  color: #94979a;
+  font-size: 20px;
+}
+.icon-assignee:before {
+  content: "\e900";
+  color: #fff;
+}
+.icon-attachment:before {
+  content: "\e901";
+  color: #fff;
+}
+.icon-comment:before {
+  content: "\e902";
+  color: #fff;
+}
+.icon-dashboard:before {
+  content: "\e903";
+  color: #fff;
+}
+.icon-date:before {
+  content: "\e904";
+  color: #fff;
+}
+.icon-edit:before {
+  content: "\e905";
+  color: #fff;
+}
+.icon-estimate:before {
+  content: "\e906";
+  color: #fff;
+}
+.icon-label:before {
+  content: "\e907";
+  color: #fff;
+}
+.icon-plus:before {
+  content: "\e908";
+  color: #fff;
+}
+.icon-points:before {
+  content: "\e909";
+  color: #fff;
+}
+.icon-reloj:before {
+  content: "\e90a";
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+}
+.icon-task:before {
+  content: "\e90b";
+  color: #fff;
+}
+.icon-trash:before {
+  content: "\e90c";
+  color: #fff;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: sans-serif, system-ui;
+}
+
+// customize styles modal
+.mat-mdc-dialog-surface {
+  border-radius: 8px !important;
+}
+
+// customize styles menu
+.mat-mdc-menu-content {
+  padding: 0px !important;
+}
+
+.mat-mdc-menu-panel {
+  background-color: transparent !important;
+}
+
+.mat-mdc-menu-item,
+.mat-mdc-menu-item:visited,
+.mat-mdc-menu-item:link {
+  color: var(--ravn-color-neutral-1) !important;
+  min-height: 35px !important;
+}
+
+// customize checkbox
+.mat-mdc-checkbox .mat-internal-form-field {
+  color: var(--ravn-color-neutral-1) !important;
+}
+
+.mdc-checkbox__native-control:enabled:checked ~ .mdc-checkbox__background,
+.mdc-checkbox__native-control:enabled:indeterminate
+  ~ .mdc-checkbox__background {
+  background-color: var(--ravn-color-primary-4) !important;
+  border-color: var(--ravn-color-primary-4) !important;
+}
+
+.mdc-checkbox:hover
+  .mdc-checkbox__native-control:checked
+  ~ .mdc-checkbox__ripple,
+.mdc-checkbox:hover .mdc-checkbox__ripple {
+  background-color: var(--ravn-color-primary-2) !important;
+}
+
+.mdc-checkbox:hover
+  .mdc-checkbox__native-control:not(:checked)
+  ~ .mdc-checkbox__background,
+.mdc-checkbox:hover
+  .mdc-checkbox__native-control:not(:indeterminate)
+  ~ .mdc-checkbox__background {
+  border-color: var(--ravn-color-primary-4) !important;
+}
+
+// position calendar
+.cdk-overlay-pane.mat-datepicker-popup {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+.mat-calendar-body-today:not(.mat-calendar-body-selected):not(
+    .mat-calendar-body-comparison-identical
+  ) {
+  border-color: var(--ravn-color-primary-4) !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: var(--ravn-color-primary-4) !important;
+}
+
+@media (hover: hover) {
+  .mat-calendar-body-cell:not(.mat-calendar-body-disabled):hover
+    > .mat-calendar-body-cell-content:not(.mat-calendar-body-selected):not(
+      .mat-calendar-body-comparison-identical
+    ) {
+    background-color: var(--ravn-color-primary-1) !important;
+  }
+}
+
+// customize accordion
+.mat-expansion-panel {
+  background: var(--ravn-color-neutral-4) !important;
+}
+
+.mat-expansion-panel-header-title {
+  color: var(--ravn-color-neutral-1) !important;
+}
+
+.mat-expansion-indicator svg {
+  fill: var(--ravn-color-neutral-1) !important;
+}
+
+.mat-expansion-panel-body {
+  padding: 0px !important;
+}
+
+// .mat-accordion .mat-expansion-panel:last-of-type {
+//   border-bottom-right-radius: 0px !important;
+//   border-bottom-left-radius: 0px !important;
+// }

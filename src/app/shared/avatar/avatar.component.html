@@ -1,0 +1,10 @@
+<img
+  [src]="url ? url : '/assets/img/avatar1.png'"
+  [alt]="alt"
+  class="inline-block rounded-full"
+  [ngClass]="{
+    'h-8 w-8': type === 'default',
+    'h-10 w-10': type === 'medium',
+    'h-12 w-12': type === 'large'
+  }"
+/>

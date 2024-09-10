@@ -1,0 +1,18 @@
+<div [matMenuTriggerFor]="menu">
+  <ng-content></ng-content>
+</div>
+<mat-menu #menu="matMenu">
+  <div
+    class="bg-neutral-4 border-neutral-2 border-[1px] rounded-lg text-xl text-neutral-2 flex flex-col items-center py-3"
+  >
+    Estimate @for (item of estimateList; track $index) {
+    <button
+      mat-menu-item
+      class="text-neutral-1 gap-4 flex items-center"
+      (click)="handleClick(item.key)"
+    >
+      <span class="icon-estimate mr-2"></span> {{ item.value }}
+    </button>
+    }
+  </div>
+</mat-menu>

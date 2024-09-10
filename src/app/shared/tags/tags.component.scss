@@ -1,0 +1,35 @@
+.neutral {
+  color: var(--ravn-color-neutral-1) !important;
+  &::ng-deep span[class^="icon-"]::before {
+    color: var(--ravn-color-neutral-1);
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.primary {
+  color: var(--ravn-color-primary-4) !important;
+  &::ng-deep span[class^="icon-"]::before {
+    color: var(--ravn-color-primary-4);
+    font-size: 20px;
+    font-weight: 600;
+  }
+}
+
+.secondary {
+  color: var(--ravn-color-secondary-4) !important;
+  &::ng-deep span[class^="icon-"]::before {
+    color: var(--ravn-color-secondary-4) !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+  }
+}
+
+.tertiary {
+  color: var(--ravn-color-tertiary-4) !important;
+  &::ng-deep span[class^="icon-"]::before {
+    color: var(--ravn-color-tertiary-4) !important;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+  }
+}

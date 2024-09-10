@@ -1,0 +1,17 @@
+<div class="flex min-h-dvh min-w-full p-4 md:p-8 pb-0 bg-neutral-5">
+  <app-sidebar class="hidden md:block"></app-sidebar>
+
+  <!-- buttons navigation -->
+  <div class="flex flex-col md:ml-8 w-full mb-8">
+    <app-top-navigation-bar class="mb-8"></app-top-navigation-bar>
+    <div class="flex justify-between mb-8">
+      <app-switch-button></app-switch-button>
+      <app-button (click)="openModal()"
+        ><span class="icon-plus"></span
+      ></app-button>
+    </div>
+
+    <!-- render content from pages  -->
+    <ng-content></ng-content>
+  </div>
+</div>

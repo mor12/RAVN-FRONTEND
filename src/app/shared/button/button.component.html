@@ -1,0 +1,10 @@
+<button
+  [disabled]="disabled"
+  class="outline-none border-none h-10 text-neutral-1 rounded-lg p-3 flex justify-center items-center cursor-pointer transition ease-in-out delay-[0.08s]"
+  [ngClass]="{
+    'bg-primary-4 hover:bg-primary-2 active:bg-primary-3': type === 'solid',
+    'bg-transparent hover:bg-neutral-2 active:bg-neutral-3': type === 'outline'
+  }"
+>
+  <ng-content></ng-content>
+</button>
